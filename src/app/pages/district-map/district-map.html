@@ -1,0 +1,98 @@
+<div class="container">
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+
+    <button (click)="goBack()">← Dashboard</button>
+
+    <h2>🗺 District Health Map</h2>
+
+    <button (click)="openModal()">➕ Add Center</button>
+
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="summary-grid">
+
+    <div class="card pastel-blue">
+      <h4>Total Centers</h4>
+      <h2>{{ centers.length }}</h2>
+    </div>
+
+    <div class="card pastel-pink">
+      <h4>Critical Centers</h4>
+      <h2>{{ centers.filter(c => c.status === 'Critical').length }}</h2>
+    </div>
+
+    <div class="card pastel-yellow">
+      <h4>Warning Centers</h4>
+      <h2>{{ centers.filter(c => c.status === 'Warning').length }}</h2>
+    </div>
+
+  </div>
+
+  <!-- MAP GRID -->
+  <div class="map-grid">
+
+    <div class="center-card"
+         *ngFor="let c of centers"
+         [style.border-left]="'6px solid ' + getColor(c.status)">
+
+      <h3>{{c.name}}</h3>
+
+      <p>🛏 Beds: {{c.beds}}</p>
+      <p>💊 Stock: {{c.stock}}</p>
+      <p>👨‍⚕️ Doctors: {{c.doctors}}</p>
+
+      <span class="status"
+            [style.background]="getColor(c.status)">
+        {{c.status}}
+      </span>
+
+    </div>
+
+  </div>
+
+  <!-- AI BOX -->
+  <div class="ai-box">
+
+    <h4>🧠 AI District Recommendation</h4>
+
+    <p>
+      North Zone PHC is critically overloaded.
+      Recommend shifting 2 doctors and 20 beds from CHC-Central
+      to balance workload.
+    </p>
+
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal" *ngIf="showModal">
+
+    <div class="modal-box">
+
+      <h3>Add Health Center</h3>
+
+      <input placeholder="Center Name" [(ngModel)]="newCenter.name">
+      <input placeholder="Beds" type="number" [(ngModel)]="newCenter.beds">
+      <input placeholder="Stock Status" [(ngModel)]="newCenter.stock">
+      <input placeholder="Doctors" type="number" [(ngModel)]="newCenter.doctors">
+
+      <select [(ngModel)]="newCenter.status">
+        <option>Good</option>
+        <option>Warning</option>
+        <option>Critical</option>
+      </select>
+
+      <div class="modal-actions">
+
+        <button (click)="closeModal()">Cancel</button>
+        <button (click)="addCenter()">Save</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

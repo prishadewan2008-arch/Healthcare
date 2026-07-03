@@ -1,10 +1,102 @@
-<h3>Doctor Attendance</h3>
+<div class="container">
 
-<div class="card p-3">
-  Dr. A - Present <br>
-  Dr. B - Absent
-</div>
+  <!-- TOP BAR -->
+  <div class="top-bar">
 
-<div class="card p-3 mt-3">
-  🤖 AI: OPD understaffed in morning
+    <button (click)="goBack()">← Dashboard</button>
+
+    <h2>👨‍⚕️ Doctors Management</h2>
+
+    <button (click)="openModal()">➕ Add Doctor</button>
+
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="summary-grid">
+
+    <div class="card pastel-blue">
+      <h4>Total Doctors</h4>
+      <h2>{{ doctors.length }}</h2>
+    </div>
+
+    <div class="card pastel-green">
+      <h4>Present</h4>
+      <h2>{{ doctors.filter(d => d.status === 'Present').length }}</h2>
+    </div>
+
+    <div class="card pastel-pink">
+      <h4>Absent</h4>
+      <h2>{{ doctors.filter(d => d.status === 'Absent').length }}</h2>
+    </div>
+
+  </div>
+
+  <!-- TABLE -->
+  <div class="card">
+
+    <table>
+
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Status</th>
+      </tr>
+
+      <tr *ngFor="let d of doctors">
+
+        <td>{{d.id}}</td>
+        <td>{{d.name}}</td>
+        <td>{{d.dept}}</td>
+
+        <td>
+          <span [style.color]="d.status === 'Present' ? 'green' : 'red'">
+            {{d.status}}
+          </span>
+        </td>
+
+      </tr>
+
+    </table>
+
+  </div>
+
+  <!-- AI BOX -->
+  <div class="ai-box">
+
+    <h4>🤖 AI Recommendation</h4>
+
+    <p>
+      Emergency department is understaffed.
+      Shift 1 doctor from General OPD during peak hours (10 AM - 1 PM).
+    </p>
+
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal" *ngIf="showModal">
+
+    <div class="modal-box">
+
+      <h3>Add Doctor</h3>
+
+      <input placeholder="Doctor Name" [(ngModel)]="newDoctor.name">
+      <input placeholder="Department" [(ngModel)]="newDoctor.dept">
+
+      <select [(ngModel)]="newDoctor.status">
+        <option>Present</option>
+        <option>Absent</option>
+      </select>
+
+      <div class="modal-actions">
+
+        <button (click)="closeModal()">Cancel</button>
+        <button (click)="addDoctor()">Save</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </div>

@@ -12,9 +12,29 @@
   margin-bottom:20px;
 }
 
-table{
-  width:100%;
-  margin-top:10px;
+/* MAP STYLE GRID */
+.map-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.center-card{
+  background:white;
+  padding:15px;
+  border-radius:12px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+  position:relative;
+}
+
+.status{
+  position:absolute;
+  top:10px;
+  right:10px;
+  color:white;
+  padding:4px 10px;
+  border-radius:10px;
+  font-size:12px;
 }
 
 .modal{

@@ -1,17 +1,101 @@
-<h3>Stock Monitoring</h3>
+<div class="container">
 
-<table class="table">
-  <tr>
-    <th>Medicine</th>
-    <th>Stock</th>
-  </tr>
+  <!-- TOP BAR -->
+  <div class="top-bar">
 
-  <tr *ngFor="let m of data.medicines">
-    <td>{{m.name}}</td>
-    <td>{{m.stock}}</td>
-  </tr>
-</table>
+    <button (click)="goBack()">← Dashboard</button>
 
-<div class="alert alert-warning">
-  {{ data.getAIAlert() }}
+    <h2>💊 Stock Management</h2>
+
+    <button (click)="openModal()">➕ Add Medicine</button>
+
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="summary-grid">
+
+    <div class="card pastel-blue">
+      <h4>Total Medicines</h4>
+      <h2>{{ medicines.length }}</h2>
+    </div>
+
+    <div class="card pastel-yellow">
+      <h4>Low Stock</h4>
+      <h2>{{ medicines.filter(m => isLowStock(m)).length }}</h2>
+    </div>
+
+    <div class="card pastel-pink">
+      <h4>Critical</h4>
+      <h2>{{ medicines.filter(m => m.stock === 0).length }}</h2>
+    </div>
+
+  </div>
+
+  <!-- TABLE -->
+  <div class="card">
+
+    <table>
+
+      <tr>
+        <th>ID</th>
+        <th>Medicine</th>
+        <th>Stock</th>
+        <th>Min Stock</th>
+        <th>Status</th>
+      </tr>
+
+      <tr *ngFor="let m of medicines"
+          [style.background]="isLowStock(m) ? '#fee2e2' : 'white'">
+
+        <td>{{ m.id }}</td>
+        <td>{{ m.name }}</td>
+        <td>{{ m.stock }}</td>
+        <td>{{ m.minStock }}</td>
+
+        <td>
+          <span [style.color]="isLowStock(m) ? 'red' : 'green'">
+            {{ isLowStock(m) ? 'LOW' : 'OK' }}
+          </span>
+        </td>
+
+      </tr>
+
+    </table>
+
+  </div>
+
+  <!-- AI BOX -->
+  <div class="ai-box">
+
+    <h4>🤖 AI Prediction</h4>
+
+    <p>
+      ORS stock is critically low.
+      Recommend immediate transfer from PHC-02.
+    </p>
+
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal" *ngIf="showModal">
+
+    <div class="modal-box">
+
+      <h3>Add Medicine</h3>
+
+      <input placeholder="Name" [(ngModel)]="newMedicine.name">
+      <input placeholder="Stock" type="number" [(ngModel)]="newMedicine.stock">
+      <input placeholder="Min Stock" type="number" [(ngModel)]="newMedicine.minStock">
+
+      <div class="modal-actions">
+
+        <button (click)="closeModal()">Cancel</button>
+        <button (click)="addMedicine()">Save</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </div>

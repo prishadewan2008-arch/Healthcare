@@ -1,0 +1,102 @@
+<div class="container">
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+
+    <button (click)="goBack()">← Dashboard</button>
+
+    <h2>🧪 Medical Tests</h2>
+
+    <button (click)="openModal()">➕ Add Test</button>
+
+  </div>
+
+  <!-- SUMMARY CARDS -->
+  <div class="summary-grid">
+
+    <div class="card pastel-blue">
+      <h4>Total Tests</h4>
+      <h2>{{ tests.length }}</h2>
+    </div>
+
+    <div class="card pastel-green">
+      <h4>Available</h4>
+      <h2>{{ tests.filter(t => t.available === 'Yes').length }}</h2>
+    </div>
+
+    <div class="card pastel-pink">
+      <h4>Unavailable</h4>
+      <h2>{{ tests.filter(t => t.available === 'No').length }}</h2>
+    </div>
+
+  </div>
+
+  <!-- TABLE -->
+  <div class="card">
+
+    <table>
+
+      <tr>
+        <th>ID</th>
+        <th>Test Name</th>
+        <th>Cost</th>
+        <th>Available</th>
+      </tr>
+
+      <tr *ngFor="let t of tests">
+
+        <td>{{t.id}}</td>
+        <td>{{t.name}}</td>
+        <td>₹{{t.cost}}</td>
+
+        <td>
+          <span [style.color]="t.available === 'Yes' ? 'green' : 'red'">
+            {{t.available}}
+          </span>
+        </td>
+
+      </tr>
+
+    </table>
+
+  </div>
+
+  <!-- AI BOX -->
+  <div class="ai-box">
+
+    <h4>🤖 AI Insight</h4>
+
+    <p>
+      Dengue-related blood tests have increased by 32%.
+      Recommend increasing lab capacity during monsoon season.
+    </p>
+
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal" *ngIf="showModal">
+
+    <div class="modal-box">
+
+      <h3>Add Test</h3>
+
+      <input placeholder="Test Name" [(ngModel)]="newTest.name">
+      <input placeholder="Cost" type="number" [(ngModel)]="newTest.cost">
+
+      <select [(ngModel)]="newTest.available">
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+
+      <div class="modal-actions">
+
+        <button (click)="closeModal()">Cancel</button>
+        <button (click)="addTest()">Save</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

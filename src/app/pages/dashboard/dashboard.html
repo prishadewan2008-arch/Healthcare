@@ -1,19 +1,98 @@
-<div class="row">
+<div class="container">
 
-  <div class="col-md-4" (click)="go('patients')">
-    <div class="card p-3">👥 Patients: 240</div>
-  </div>
+    <h2>🏥 Health Centre Dashboard</h2>
 
-  <div class="col-md-4" (click)="go('beds')">
-    <div class="card p-3">🛏 Beds Available: 18</div>
-  </div>
+    <!-- Navigation Buttons -->
 
-  <div class="col-md-4" (click)="go('stock')">
-    <div class="card p-3">💊 Low Stock: 3</div>
-  </div>
+    <div class="button-row">
 
-</div>
+        <button (click)="navigate('/')">
+            🏠 Dashboard
+        </button>
 
-<div class="card mt-3 p-3">
-  🤖 AI: {{ "ORS will run out in 3 days. Restock recommended." }}
+        <button (click)="navigate('/patients')">
+            👥 Patients
+        </button>
+
+        <button (click)="navigate('/beds')">
+            🛏 Beds Available
+        </button>
+
+        <button (click)="navigate('/stock')">
+            💊 Inventory
+        </button>
+
+        <button (click)="navigate('/tests')">
+            🧪 Tests Available
+        </button>
+
+    </div>
+
+    <br>
+
+    <!-- Dashboard Cards -->
+
+    <div class="dashboard-grid">
+
+        <div class="card pastel-blue"
+             (click)="navigate('/doctors')">
+
+            <h4>👨‍⚕️ Doctors Present</h4>
+
+            <h2>18</h2>
+
+            <small>Click to view attendance</small>
+
+        </div>
+
+        <div class="card pastel-pink"
+             (click)="navigate('/ai')">
+
+            <h4>🤖 AI Alerts</h4>
+
+            <h2>5</h2>
+
+            <small>Click to view recommendations</small>
+
+        </div>
+
+        <div class="card pastel-green"
+             (click)="navigate('/district-map')">
+
+            <h4>🗺 District Map</h4>
+
+            <h2>24 PHCs</h2>
+
+            <small>View Health Centres</small>
+
+        </div>
+
+        <div class="card pastel-yellow" (click)="navigate('/reports')">
+
+            <h4>📄 Reports</h4>
+            <h2>12</h2>
+            <small>Daily • Weekly • Monthly</small>
+
+        </div>
+
+    </div>
+
+    <br>
+
+    <!-- AI Recommendation -->
+
+    <div class="ai-box">
+
+        <h4>🤖 Today's AI Recommendation</h4>
+
+        <p>
+
+            ORS stock is expected to finish within
+            <b>3 days</b>.
+            Transfer 50 packets from PHC-01 to PHC-07.
+
+        </p>
+
+    </div>
+
 </div>

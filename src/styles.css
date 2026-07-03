@@ -1,0 +1,167 @@
+/* =========================
+   GLOBAL BASE STYLES
+========================= */
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f7f9fc;
+  color: #1f2937;
+}
+
+/* Container spacing */
+.container {
+  padding: 20px;
+}
+
+/* Headings */
+h2 {
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* =========================
+   CARD DESIGN (MAIN UI BLOCK)
+========================= */
+
+.card {
+  border: none;
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition: all 0.25s ease-in-out;
+  background: white;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+/* =========================
+   PASTEL COLOR PALETTE
+========================= */
+
+/* Soft Blue */
+.pastel-blue {
+  background: #dbeafe;
+}
+
+/* Soft Green */
+.pastel-green {
+  background: #dcfce7;
+}
+
+/* Soft Pink */
+.pastel-pink {
+  background: #fce7f3;
+}
+
+/* Soft Yellow */
+.pastel-yellow {
+  background: #fef9c3;
+}
+
+/* Soft Purple */
+.pastel-purple {
+  background: #ede9fe;
+}
+
+/* Soft Gray */
+.pastel-gray {
+  background: #f3f4f6;
+}
+
+/* =========================
+   TABLE STYLING
+========================= */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+  font-weight: 600;
+  background: #e0f2fe;
+}
+
+/* =========================
+   BUTTON STYLE (IF USED)
+========================= */
+
+button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 10px;
+  background: #6366f1;
+  color: white;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #4f46e5;
+  transform: scale(1.05);
+}
+
+/* =========================
+   AI HIGHLIGHT BOX
+========================= */
+
+.ai-box {
+  background: linear-gradient(135deg, #ede9fe, #dbeafe);
+  border-left: 5px solid #6366f1;
+  padding: 15px;
+  border-radius: 14px;
+  margin-top: 15px;
+}
+
+/* =========================
+   GRID SPACING HELPERS
+========================= */
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.col-md-4 {
+  flex: 1;
+  min-width: 250px;
+}
+
+/* =========================
+   NAVBAR IMPROVEMENT (OPTIONAL)
+========================= */
+
+.navbar {
+  padding: 12px 20px;
+  background: #111827 !important;
+}
+
+.navbar a {
+  color: white !important;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+/* =========================
+   SMALL TEXT STYLING
+========================= */
+
+small {
+  color: #6b7280;
+}

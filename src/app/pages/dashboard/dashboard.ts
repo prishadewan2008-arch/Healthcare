@@ -4,12 +4,15 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  templateUrl: './dashboard.html'
+  templateUrl: './dashboard.html',
+  styleUrls: ['./dashboard.css']
 })
 export class Dashboard {
+
   constructor(private router: Router) {}
 
-  go(path: string) {
-    this.router.navigate([path]);
+  navigate(route: string) {
+    this.router.navigate([route]);
   }
+
 }

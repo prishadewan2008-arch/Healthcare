@@ -1,9 +1,85 @@
-<h3>Bed Availability</h3>
+<div class="container">
 
-<div class="card p-3">
-  ICU Beds: 2 / 10 available
-</div>
+  <div class="top-bar">
+    <button (click)="goBack()">← Dashboard</button>
+    <h2>🛏 Bed Availability</h2>
+    <button (click)="openModal()">➕ Add Bed</button>
+  </div>
 
-<div class="card p-3 mt-3">
-  🤖 AI: ICU may fill in 24 hours
+  <!-- SUMMARY -->
+  <div class="summary-grid">
+
+    <div class="card pastel-blue">
+      <h4>Total Beds</h4>
+      <h2>{{ beds.length }}</h2>
+    </div>
+
+    <div class="card pastel-green">
+      <h4>Available</h4>
+      <h2>{{ beds.filter(b => b.status === 'Available').length }}</h2>
+    </div>
+
+    <div class="card pastel-pink">
+      <h4>Occupied</h4>
+      <h2>{{ beds.filter(b => b.status === 'Occupied').length }}</h2>
+    </div>
+
+  </div>
+
+  <!-- TABLE -->
+  <div class="card">
+
+    <table>
+
+      <tr>
+        <th>Bed ID</th>
+        <th>Ward</th>
+        <th>Status</th>
+      </tr>
+
+      <tr *ngFor="let b of beds">
+
+        <td>{{b.id}}</td>
+        <td>{{b.ward}}</td>
+
+        <td>
+          <span [style.color]="b.status === 'Available' ? 'green' : 'red'">
+            {{b.status}}
+          </span>
+        </td>
+
+      </tr>
+
+    </table>
+
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal" *ngIf="showModal">
+
+    <div class="modal-box">
+
+      <h3>Add Bed</h3>
+
+      <select [(ngModel)]="newBed.ward">
+        <option>ICU</option>
+        <option>General</option>
+        <option>Maternity</option>
+        <option>Emergency</option>
+      </select>
+
+      <select [(ngModel)]="newBed.status">
+        <option>Available</option>
+        <option>Occupied</option>
+      </select>
+
+      <div class="modal-actions">
+        <button (click)="closeModal()">Cancel</button>
+        <button (click)="addBed()">Save</button>
+      </div>
+
+    </div>
+
+  </div>
+
 </div>

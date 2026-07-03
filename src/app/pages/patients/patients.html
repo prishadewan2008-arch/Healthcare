@@ -1,7 +1,75 @@
-<h3>Patient Footfall</h3>
+<div class="container">
 
-<div class="card p-3">Today: 240 patients</div>
+  <div class="top-bar">
+    <button (click)="goBack()">← Dashboard</button>
+    <h2>👥 Patients</h2>
+    <button (click)="openModal()">➕ Add Patient</button>
+  </div>
 
-<div class="card p-3 mt-3">
-  🤖 AI Forecast: 280 patients tomorrow
+  <div class="summary-grid">
+
+  <div class="card pastel-blue">
+    <h4>Total Patients</h4>
+    <h2>65</h2>
+  </div>
+
+  <div class="card pastel-green">
+    <h4>New Patients</h4>
+    <h2>{{ patients.length }}</h2>
+  </div>
+
+  <div class="card pastel-pink">
+    <h4>Emergency</h4>
+    <h2>18</h2>
+  </div>
+
+</div>
+
+  <!-- TABLE -->
+  <div class="card">
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Department</th>
+      </tr>
+
+      <tr *ngFor="let p of patients">
+        <td>{{p.id}}</td>
+        <td>{{p.name}}</td>
+        <td>{{p.age}}</td>
+        <td>{{p.gender}}</td>
+        <td>{{p.dept}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal" *ngIf="showModal">
+
+    <div class="modal-box">
+
+      <h3>Add Patient</h3>
+
+      <input placeholder="Name" [(ngModel)]="newPatient.name">
+      <input placeholder="Age" [(ngModel)]="newPatient.age">
+
+      <select [(ngModel)]="newPatient.gender">
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+
+      <input placeholder="Department" [(ngModel)]="newPatient.dept">
+
+      <div class="modal-actions">
+        <button (click)="closeModal()">Cancel</button>
+        <button (click)="addPatient()">Save</button>
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
