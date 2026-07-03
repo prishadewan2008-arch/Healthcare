@@ -1,0 +1,17 @@
+<h3>Stock Monitoring</h3>
+
+<table class="table">
+  <tr>
+    <th>Medicine</th>
+    <th>Stock</th>
+  </tr>
+
+  <tr *ngFor="let m of data.medicines">
+    <td>{{m.name}}</td>
+    <td>{{m.stock}}</td>
+  </tr>
+</table>
+
+<div class="alert alert-warning">
+  {{ data.getAIAlert() }}
+</div>
