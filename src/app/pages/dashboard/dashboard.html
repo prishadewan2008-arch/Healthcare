@@ -117,4 +117,62 @@
 
     </div>
 
+    <br>
+
+<h3>📊 Healthcare Analytics</h3>
+
+<div class="charts">
+
+  <!-- Doctor Attendance -->
+  <div class="chart-card">
+    <h4>👨‍⚕️ Doctor Attendance</h4>
+    <canvas
+      baseChart
+      [data]="doctorChartData"
+      [type]="doctorChartType">
+    </canvas>
+  </div>
+
+  <!-- Bed Availability -->
+  <div class="chart-card">
+    <h4>🛏 Bed Availability</h4>
+    <canvas
+      baseChart
+      [data]="bedChartData"
+      [type]="bedChartType">
+    </canvas>
+  </div>
+
+  <!-- Weekly Patient Visits -->
+   <div class="chart-card">
+    <h4>👥 Weekly Patient Visits</h4>
+    <canvas
+      baseChart
+      [data]="patientChartData"
+      [type]="patientChartType">
+    </canvas>
+  </div>
+
+  <!-- Inventory -->
+  <div class="chart-card">
+    <h4>💊 Inventory Management</h4>
+    <canvas
+      baseChart
+      [data]="inventoryChartData"
+      [type]="inventoryChartType">
+    </canvas>
+  </div>
+
+  <!-- Medical Tests -->
+  <div class="chart-card">
+    <h4>🧪 Medical Tests</h4>
+    <canvas
+      baseChart
+      [data]="testChartData"
+      [type]="testChartType">
+    </canvas>
+  </div>
+
+</div>
+
 </div>
