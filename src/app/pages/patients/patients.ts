@@ -29,7 +29,7 @@ export class Patients {
   };
 
   goBack() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/dashboard']);
   }
 
   openModal() {

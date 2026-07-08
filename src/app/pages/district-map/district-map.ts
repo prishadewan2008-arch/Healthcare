@@ -52,7 +52,7 @@ export class DistrictMap {
   };
 
   goBack() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/dashboard']);
   }
 
   openModal() {

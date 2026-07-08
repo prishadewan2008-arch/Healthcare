@@ -44,7 +44,7 @@ export class AiAlerts {
   };
 
   goBack() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/dashboard']);
   }
 
   openModal() {

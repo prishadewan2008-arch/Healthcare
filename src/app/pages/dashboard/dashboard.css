@@ -1,59 +1,38 @@
 .button-row {
-
     display: flex;
-
     flex-wrap: wrap;
-
     gap: 12px;
-
     margin-top: 20px;
-
     margin-bottom: 20px;
-
 }
 
 .button-row button {
-
     flex: 1;
-
     min-width: 160px;
-
+    color: white;
+    background-color: #0F766E;
 }
 
 .dashboard-grid {
-
     display: grid;
-
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-
     gap: 20px;
-
 }
 
 .dashboard-grid .card {
-
     padding: 20px;
-
     text-align: center;
-
 }
 
 .dashboard-grid h2 {
-
     margin: 10px 0;
-
     font-size: 34px;
-
 }
 
 .dashboard-grid h4 {
-
-    margin-bottom: 10px;
-
+  margin-bottom: 10px;
 }
 
 .ai-box {
-
     margin-top: 30px;
-
 }

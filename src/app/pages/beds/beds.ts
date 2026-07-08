@@ -28,7 +28,7 @@ export class Beds {
   };
 
   goBack() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/dashboard']);
   }
 
   openModal() {
