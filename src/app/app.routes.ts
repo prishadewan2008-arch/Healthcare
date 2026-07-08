@@ -10,9 +10,12 @@ import { AiAlerts } from './pages/ai-center/ai-center';
 import { Tests } from './pages/tests/tests';
 import { DistrictMap } from './pages/district-map/district-map';
 import { Reports } from './pages/reports/reports';
+import { Login } from './pages/login/login';
 
 export const routes: Routes = [
-  { path: '', component: Home },
+  { path: '', component: Login },
+  
+  { path: 'home', component: Home },
 
   { path: 'dashboard', component: Dashboard },
 
